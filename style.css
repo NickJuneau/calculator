@@ -8,6 +8,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Dosis; 
+    background-color: rgb(128, 128, 128);
 }
 
 .calculator {
@@ -15,10 +16,12 @@ body {
     flex-direction: column;
     margin-top: 40px;
     margin-bottom: 40px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(138, 170, 229);
     width: 500px;
     height: 800px;
     border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
 }
 
 .display {
@@ -26,7 +29,7 @@ body {
     flex-direction: row;
     justify-content: end;
     align-items: center;
-    background-color: rgb(177, 177, 177);  
+    background-color: white;  
     margin: 40px 20px;
     height: 130px;
     margin-bottom: 0;
@@ -53,7 +56,7 @@ body {
 }
 
 .button {
-    background-color: rgb(177, 177, 177);
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,7 +67,7 @@ body {
 }
 
 #equals {
-    background-color: rgb(177, 177, 177);
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
