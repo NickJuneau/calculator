@@ -64,6 +64,7 @@ body {
     width: 110px;
     font-size: 40px;
     border-radius: 10px;
+    user-select: none;
 }
 
 #equals {
