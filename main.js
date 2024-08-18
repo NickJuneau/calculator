@@ -1,7 +1,3 @@
-//VARIABLES
-let firstNumber;
-let operator;
-let secondNumber;
 
 //MATH FUNCTIONS
 function add(a, b) {
@@ -20,22 +16,13 @@ function divide(a,b){
     return a/b;
 }
 
-function operate(op, num1, num2){
-    if(op === "+"){
-        add(num1, num2);
-    } else if(op === "-"){
-        subtract(num1, num2);
-    } else if(op === "×"){
-        multiply(num1, num2);
-    } else if(op === "÷"){
-        divide(num1, num2);
-    }
-}
+
 
 //DOM MANIPULATOR VARIABLES
 const clearButton = document.querySelector('#clear');
 const zeroButton = document.querySelector('#zero');
 const equalsButton = document.querySelector('#equals');
+const plusButton = document.querySelector('#plus');
 const oneButton = document.querySelector('#one');
 const twoButton = document.querySelector('#two');
 const threeButton = document.querySelector('#three');
@@ -50,28 +37,77 @@ const nineButton = document.querySelector('#nine');
 const divideButton = document.querySelector('#divide');
 
 const allButtons = document.querySelectorAll('.button');
+const numButtons = document.querySelectorAll('.num');
 
-//ADDING EVENTS
+const display = document.querySelector('#value-output')
 
+
+//CHANGING COLOR WHEN HOVERING OVER BUTTON
 allButtons.forEach((button) => {
-    //CHANGING COLOR WHEN HOVERING OVER BUTTON
+    
     button.addEventListener('mouseover', () => {
         button.style.backgroundColor = 'rgb(225,225,225)';
     });
-
     button.addEventListener('mouseout', ()  => {
         button.style.backgroundColor = "white";
     });
-
-    //DISPLAYING NUM WHEN DETECTING CLICK
-    
-
 });
 
 
+//DISPLAYING VALUE WHEN BUTTON CLICKED
+numButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        display.textContent += button.textContent;
+    });
+});
 
-//DISPLAY FUNCTIONS
+//SPECIAL FUNCTION KEYS
+clearButton.addEventListener('click', () => {
+    display.textContent = '';
+});
+
+equalsButton.addEventListener('click', () => {
+    operate(display.textContent);
+});
 
 
+//MATH LOGIC AND UPDATES DISPLAY
+function operate(input){
+    let num1;
+    let operator;
+    let num2;
+    let splitInput;
 
+    //Addition
+    splitInput = input.split('+');
+    if(splitInput.length > 1){
+        num1 = Number(splitInput[0]);
+        num2 = Number(splitInput[1]);
+        display.textContent = add(num1, num2);
+    }
 
+    //Subtraction
+    splitInput = input.split("-");
+    if(splitInput.length > 1){
+        num1 = Number(splitInput[0]);
+        num2 = Number(splitInput[1]);
+        display.textContent = subtract(num1, num2);
+    }
+
+    //Multiplication
+    splitInput = input.split("×");
+    if(splitInput.length > 1){
+        num1 = Number(splitInput[0]);
+        num2 = Number(splitInput[1]);
+        display.textContent = multiply(num1, num2);
+    }
+
+    //Division
+    splitInput = input.split("÷");
+    if(splitInput.length > 1){
+        num1 = Number(splitInput[0]);
+        num2 = Number(splitInput[1]);
+        display.textContent = divide(num1, num2);
+    }
+
+}

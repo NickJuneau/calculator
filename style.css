@@ -14,8 +14,7 @@ body {
 .calculator {
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin: 20px 0;
     background-color: rgb(138, 170, 229);
     width: 500px;
     height: 800px;
@@ -67,13 +66,16 @@ body {
     user-select: none;
 }
 
-#equals {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 110px;
-    width: 225px;
-    font-size: 40px;
-    border-radius: 10px;
+.operator {
+    font-weight: 750;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(156, 156, 156);
+    text-align: center;
+    padding: 5px 0;
 }
